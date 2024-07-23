@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightcord</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="joinRoomContainer">
+        <form id="joinRoom">
+            <h1>Join a Room</h1>
+            <input id="roomNameInput" type="text" maxlength="32" required><br>
+            <input id="usernameInput" type="text" maxlength="32" required><br>
+            <button id="joinRoomBtn" type="submit">Join</button>
+        </form>
+    </div>
+
+    <ul id="usersList"></ul>
+
+    <p class="userList"></p>
+    <p class="roomList"></p>
+    <p class="messageHistory"></p>
+
+    <form id="messageForm">
+        <input id="message" type="text" required>
+        <button type="submit">Send</button>
+    </form>
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>

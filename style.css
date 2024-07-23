@@ -1,0 +1,30 @@
+body {
+    background-color: #121212;
+}
+
+#joinRoomContainer {
+    display: flex;
+}
+
+#joinRoom {
+    background-color: #884499;
+    text-align: center;
+    display: inline-block;
+    align-items: center;
+    justify-items: center;
+    width: 512px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#roomNameInput, #usernameInput {
+    margin: 12px 24px;
+}
+
+#joinRoomBtn {
+    margin-bottom: 24px;
+}
+
+#messageForm {
+    /* float: right; */
+}
