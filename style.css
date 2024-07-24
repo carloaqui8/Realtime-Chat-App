@@ -1,12 +1,19 @@
 body {
     background-color: #121212;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 #joinRoomContainer {
     display: flex;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #joinRoom {
+    font-size: 24px;
     background-color: #884499;
     text-align: center;
     display: inline-block;
@@ -15,16 +22,33 @@ body {
     width: 512px;
     margin-right: auto;
     margin-left: auto;
+    border-radius: 12px;
 }
 
 #roomNameInput, #usernameInput {
-    margin: 12px 24px;
+    height: 32px;
+    width: 256px;
+    margin: 12px;
+    font-size: 1rem;
+    background-color: #a36daf;
+    border: 2px solid #121212;
+    border-radius: 8px;
+}
+
+#roomNameInput::placeholder, #usernameInput::placeholder {
+    color: #121212;
 }
 
 #joinRoomBtn {
     margin-bottom: 24px;
+    height: 32px;
+    width: 64px;
+    font-size: 1.25rem;
+    background-color: #a36daf;
+    border: 2px solid #121212;
+    border-radius: 8px;
 }
 
-#messageForm {
-    /* float: right; */
-}
+/* #messageForm {
+    float: right;
+} */
