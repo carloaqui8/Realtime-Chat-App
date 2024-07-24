@@ -1,27 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div id="currentUsers">
-        <ul id="usersList"></ul>
-    </div>
+    <div id="bigContainer">
+        <header id="navBar">
+            <nav>
+                <a href="./index.html">Leave Room</a>
+            </nav>
+        </header>
 
-    <!-- <div id="roomsList">
-        <p class="roomList">Your Rooms:</p>
-    </div> -->
+        <div id="mainDisplay">
+            <div id="infoContainer">
+                <div id="info">
+                    <h4>Room Name:</h4>
+                    <p>ligma</p>
+                    <!-- Room Name Goes Here -->
+                    <h4>Users:</h4>
+                    <ul id="usersList">
+                        <li>user1</li>
+                        <li>user2</li>
+                        <li>user3</li>
+                    </ul>
+                </div>
+            </div>
 
-    <p class="userList">Users List:</p>
-    <p class="messageHistory"></p>
+            <div id="messageHistory">
+                ligma
+            </div>
 
-    <div id="messageSender">
-        <form id="messageForm">
-            <input id="message" type="text" required placeholder="Send a Message">
-            <button type="submit">Send</button>
-        </form>
+        </div>
+
+        <div id="messageSender">
+            <form id="messageForm">
+                <input id="message" type="text" required placeholder="Send a Message">
+                <button id = "send" type="submit">Send</button>
+            </form>
+        </div>
     </div>
 </body>
+
 </html>
