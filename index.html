@@ -10,15 +10,15 @@
 
 <body>
     <div id="joinRoomContainer">
-        <form id="joinRoom">
+        <form id="joinRoom" action="./chat.html">
             <h1>Join a Room</h1>
-            <input id="roomNameInput" type="text" maxlength="32" required placeholder="Room Name"><br>
-            <input id="usernameInput" type="text" maxlength="32" required placeholder="Username"><br>
+            <input id="usernameInput" type="text" maxlength="32" placeholder="Username" name="username" required><br>
+            <input id="roomNameInput" type="text" maxlength="32" placeholder="Room Name" name="room" required><br>
             <button id="joinRoomBtn" type="submit">Join</button>
         </form>
     </div>
 
-    <script src="index.js"></script>
+    <!-- <script src="index.js"></script> -->
 </body>
 
 </html>
