@@ -87,6 +87,31 @@ body {
     height: 512px;
     width: 75%;
     float: right;
+    overflow-y: auto;
+}
+
+.myMessage {
+    font-size: 12px;
+    display: flex;
+    background-color: #b181bb;
+    max-width: 100%;
+    justify-content: left;
+    padding: 6px;
+    border: 1px solid black;
+    border-radius: 6px;
+    margin: 12px;
+}
+
+.yourMessage {
+    font-size: 12px;
+    display: flex;
+    background-color: #cbaad1;
+    max-width: 100%;
+    justify-content: left;
+    padding: 6px;
+    border: 1px solid black;
+    border-radius: 6px;
+    margin: 12px;
 }
 
 #messageSender {
