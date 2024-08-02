@@ -2,6 +2,8 @@ const http = require('http');
 const express = require('express');
 const socketio = require('socket.io');
 
+const { userJoin, getCurrentUser } = require('./users');
+
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
@@ -9,15 +11,18 @@ const io = socketio(server);
 app.use(express.static(__dirname));
 
 io.on('connection', (socket) => {
-    //Welcome the user
-    socket.emit('message', 'Welcome __!');
-    
-    //Broadcast when the user connects
-    socket.broadcast.emit('message', "__ has joined the room");
+    //Connect user to selected room
+    socket.on('joinRoom', ({ username, room }) => {
+        const user = userJoin(socket.id, username, room);
 
-    //Also broadcast when the user disconnects
-    socket.on('disconnect', () => {
-        io.emit('message', '__ has left the room');
+        socket.join(user.room);
+
+
+        //Welcome the user
+        socket.emit('message', `Welcome ${user.username}`);
+
+        //Broadcast when the user connects
+        socket.broadcast.to(user.room).emit('message', `${user.username} has joined the room`);
     });
 
     //Listen for a message
@@ -26,6 +31,11 @@ io.on('connection', (socket) => {
         console.log(message)
         io.emit('message', message);
     })
+
+    //Broadcast when the user disconnects
+    socket.on('disconnect', () => {
+        io.emit('message', `${user.username} has left the room`);
+    });
 });
 
 server.listen(5000, (req, res) => {

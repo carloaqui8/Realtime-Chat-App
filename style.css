@@ -95,11 +95,12 @@ body {
     display: flex;
     background-color: #b181bb;
     max-width: 100%;
-    justify-content: left;
+    justify-content: right;
     padding: 6px;
     border: 1px solid black;
     border-radius: 6px;
-    margin: 12px;
+    margin: 12px 12px 12px 25%;
+    text-align: right;
 }
 
 .yourMessage {
@@ -111,7 +112,8 @@ body {
     padding: 6px;
     border: 1px solid black;
     border-radius: 6px;
-    margin: 12px;
+    margin: 12px 25% 12px 12px;
+    text-align: left;
 }
 
 #messageSender {

@@ -3,6 +3,15 @@ const messageForm = document.getElementById('messageForm');
 const messageHistory = document.getElementById('messageHistory');
 let currentMsg = '';
 
+//Get username and room from URL
+const { username, room } = Qs.parse(location.search, {
+    ignoreQueryPrefix: true
+});
+
+//Join specific chatroom
+socket.emit('joinRoom', {username, room});
+console.log(username, room);
+
 //On message submission
 messageForm.addEventListener('submit', (event) => {
     //Don't open new tab or whatever
