@@ -3,14 +3,27 @@ const messageForm = document.getElementById('messageForm');
 const messageHistory = document.getElementById('messageHistory');
 let currentMsg = '';
 
+const roomNameDisplay = document.getElementById('roomName');
+const usersDisplay = document.getElementById('usersList');
+
 //Get username and room from URL
 const { username, room } = Qs.parse(location.search, {
     ignoreQueryPrefix: true
 });
 
 //Join specific chatroom
-socket.emit('joinRoom', {username, room});
-console.log(username, room);
+socket.emit('joinRoom', { username, room });
+                    // console.log(username, room);
+
+socket.on('roomInfo', ({ room, users }) => {
+    //Change Room Name
+    roomNameDisplay.innerText = `${room}`;
+
+    //Change Users List
+    usersDisplay.innerHTML = `
+        ${users.map(user => `<li>${user.username}</li>`).join('')}
+    `;
+});
 
 //On message submission
 messageForm.addEventListener('submit', (event) => {
