@@ -58,3 +58,14 @@ socket.on('message', (msg) => {
     //Clear message form after sending
     document.getElementById('messageForm').reset();
 });
+
+socket.on('serverMessage', (msg) => {
+    //Create new message element
+    const newMessage = document.createElement("p");
+    newMessage.textContent = msg;
+
+    newMessage.classList.add('serverMessage');
+
+    //Add to the message history
+    messageHistory.appendChild(newMessage);
+});

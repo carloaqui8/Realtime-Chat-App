@@ -92,12 +92,26 @@ body {
     width: 25%;
 }
 
+#info {
+    padding: 12px;
+    overflow-x: auto;
+}
+
 #messageHistory {
     background-color: #8b8b8b;
     height: 512px;
     width: 75%;
     float: right;
     overflow-y: auto;
+}
+.serverMessage {
+    font-size: 12px;
+    display: flex;
+    color: #43004e;
+    max-width: 100%;
+    justify-content: center;
+    margin: 12px;
+    text-align: center;
 }
 
 .myMessage {

@@ -19,10 +19,10 @@ io.on('connection', (socket) => {
         socket.join(user.room);
 
         //Welcome the user (only seen by user)
-        socket.emit('message', `Welcome ${user.username}`);
+        socket.emit('serverMessage', `Welcome ${user.username}`);
 
         //Broadcast when the user connects
-        socket.broadcast.to(user.room).emit('message', `${user.username} has joined the room`);
+        socket.broadcast.to(user.room).emit('serverMessage', `${user.username} has joined the room`);
 
         //Modify room name and users info
         io.to(user.room).emit('roomInfo', {
@@ -46,7 +46,7 @@ io.on('connection', (socket) => {
 
         if (user) {
             //Broadcast to room when user leaves
-            io.to(user.room).emit('message', `${user.username} has left the room`);
+            io.to(user.room).emit('serverMessage', `${user.username} has left the room`);
 
             //Modify room name and users info
             io.to(user.room).emit('roomInfo', {
