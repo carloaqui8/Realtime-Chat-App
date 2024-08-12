@@ -1,6 +1,7 @@
 const http = require('http');
 const express = require('express');
 const socketio = require('socket.io');
+const mongoose = require('mongoose');
 
 const { userJoin, getCurrentUser, userLeave, getUsersByRoom } = require('./users');
 
@@ -9,6 +10,23 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 app.use(express.static(__dirname));
+
+//Connect to database
+mongoose.connect("mongodb://localhost:27017/chatAppDatabase", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => {
+    console.log('Connected to MongoDB');
+}).catch((error) => {
+    console.error('Error connecting to MongoDB:', error);
+});
+
+//Create database record model
+const Message = mongoose.model("Message", {
+    username: { type: String },
+    message: { type: String },
+    room: { type: String }
+});
 
 io.on('connection', (socket) => {
     //Connect user to selected room
@@ -34,6 +52,12 @@ io.on('connection', (socket) => {
     //Listen for a message
     socket.on('sentMessage', (message) => {
         const user = getCurrentUser(socket.id);
+        const messageRecord = new Message({
+            username: user.username,
+            message: message,
+            room: user.room
+        });
+        messageRecord.save();
 
         //Emit back to everyone in current room
         console.log(message)
