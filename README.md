@@ -7,6 +7,4 @@ Don't really need React for this right?
 Figure it out
 
 ## 3. Do Database Stuff
-Make it actually save the messages upon refresh
-
-## 4. Do Login/User Authentication Stuff
+Save messages to a db
